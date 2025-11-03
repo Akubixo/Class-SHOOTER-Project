@@ -35,10 +35,11 @@ namespace AJM
                 transform.position = new Vector3(transform.position.x * -1, transform.position.y, 0);
             }
 
-            if (transform.position.y > verticalScreenLimit || transform.position.y < -verticalScreenLimit)
-            {
-                transform.position = new Vector3(transform.position.x, transform.position.y * -1, 0);
-            }
+            float minY = -4f; // stop at the bottom of Anthony's Screen
+            float maxY = 0f; // stop at halfway (0 = middle)
+            float clampedY = Mathf.Clamp(transform.position.y, minY, maxY); // clamping the y transform of the player to the values I set above
+
+            transform.position = new Vector3(transform.position.x, clampedY, 0); // updates the player on what it can do. In the same way we do in the "if" statement above
         }
 
         public void Shooting()
