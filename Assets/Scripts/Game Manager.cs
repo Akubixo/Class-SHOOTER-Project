@@ -9,8 +9,11 @@ namespace AJM
     public class GameManager : MonoBehaviour
     {
         public GameObject playerPrefab;
-        public GameObject enemyOnePrefab;
         public GameObject cloudPrefab;
+
+        public GameObject enemyOnePrefab;
+        public GameObject enemyMichaelPrefab;
+        public GameObject enemyJuanPrefab;
 
         public TextMeshProUGUI livesText;
 
@@ -33,6 +36,17 @@ namespace AJM
         {
             Instantiate(enemyOnePrefab, new Vector3(Random.Range(-horizontalScreenSize, horizontalScreenSize) * 0.9f, verticalScreenSize, 0), Quaternion.Euler(0, 0, 0));
         }
+
+        public void CreateEnemyMicheal()
+        {
+            
+        }
+
+        public void CreateEnemyJuan()
+        {
+            
+        }
+
         void CreateSky()
         {
             for (int i = 0; i < 30; i++)
@@ -41,6 +55,7 @@ namespace AJM
             }
 
         }
+
         public void AddScore(int earnedScore)
         {
             score = score + earnedScore;
