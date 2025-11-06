@@ -7,11 +7,13 @@ namespace AJM
     public class enemyJuanPrefab : MonoBehaviour
     {
         public GameObject explosionPrefab;
+
         private GameManager gameManager;
-        float speed = 5f;
+
+        //variables for direction and speed
         int direction = 1;
-        
-        
+        float speed = 3f;
+
         void Start()
         {
             gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
@@ -20,16 +22,6 @@ namespace AJM
         public void Update()
         {
             transform.Translate(new Vector3(0, -1, 0) * Time.deltaTime * 3f);
-            transform.Translate(Vector3.right * direction * speed * Time.deltaTime);
-
-            if (transform.position.x >= 2.5)
-            {
-                direction = -1;
-                Vector3 pos = transform.position;
-                pos.y -= .5f;
-                transform.position = pos;
-            }
-
             if (transform.position.y < -6.5f)
             {
                 Destroy(this.gameObject);
@@ -54,11 +46,3 @@ namespace AJM
         }
     }
 }
-
-
-
-
-
-
-
-

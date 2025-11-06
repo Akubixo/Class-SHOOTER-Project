@@ -631,7 +631,7 @@ MonoBehaviour:
   cloudPrefab: {fileID: 3191613488673667241, guid: 9d2e16054e5e8c746ab410e0c7a985e2, type: 3}
   enemyOnePrefab: {fileID: 2235343111844917446, guid: 32b96876692ef754bb9a267c5152c902, type: 3}
   enemyMichaelPrefab: {fileID: 0}
-  enemyJuanPrefab: {fileID: 6820170648689206493, guid: 6e2bd10bc18d9f741830a01a393fabc3, type: 3}
+  enemyJuanPrefab: {fileID: 3919708740491861471, guid: 538b1f50f5f3a1345a382546c2f87980, type: 3}
   livesText: {fileID: 216985894}
   verticalScreenSize: 0
   horizontalScreenSize: 0
