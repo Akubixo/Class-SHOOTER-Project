@@ -30,6 +30,7 @@ namespace AJM
             Instantiate(playerPrefab, transform.position, Quaternion.identity);
             CreateSky();
             InvokeRepeating("CreateEnemyOne", 1, 3);
+            InvokeRepeating("CreateEnemyJuan", 5, 7);
         }
 
         public void CreateEnemyOne()
@@ -44,7 +45,7 @@ namespace AJM
 
         public void CreateEnemyJuan()
         {
-            Instantiate(enemyJuanPrefab, new Vector3(Random.Range(-horizontalScreenSize, horizontalScreenSize) * 0.9f, verticalScreenSize, 0), Quaternion.Euler(0, 0, 0));
+            Instantiate(enemyJuanPrefab, new Vector3(Random.Range(-horizontalScreenSize, horizontalScreenSize) * 0.7f, verticalScreenSize, 0), Quaternion.Euler(0, 0, 0));
         }
 
         void CreateSky()

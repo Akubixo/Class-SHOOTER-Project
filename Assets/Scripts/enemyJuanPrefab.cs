@@ -12,7 +12,8 @@ namespace AJM
 
         //variables for direction and speed
         int direction = 1;
-        float speed = 3f;
+        float directionY = -0.5f;
+        float speed = 6f;
 
         void Start()
         {
@@ -21,7 +22,12 @@ namespace AJM
 
         public void Update()
         {
-            transform.Translate(new Vector3(0, -1, 0) * Time.deltaTime * 3f);
+            transform.Translate(new Vector3(direction, directionY, 0) * Time.deltaTime * speed);
+            if (transform.position.x > 8.5f || transform.position.x < -8.5f)
+            {
+                direction *= -1;
+            }
+
             if (transform.position.y < -6.5f)
             {
                 Destroy(this.gameObject);
