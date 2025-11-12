@@ -9,6 +9,7 @@ namespace AJM
         public GameObject explosionPrefab;
 
         private GameManager gameManager;
+
         void Start()
         {
             gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
