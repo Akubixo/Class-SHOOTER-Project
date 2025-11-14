@@ -68,7 +68,92 @@ namespace AJM
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
+<<<<<<< Updated upstream
                 Instantiate(bulletPrefab, transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
+=======
+                switch (weaponType)
+                {
+                    case 1:
+                        Instantiate(bulletPrefab, transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
+                        break;
+                    case 2:
+                        Instantiate(bulletPrefab, transform.position + new Vector3(-0.5f, 0.5f, 0), Quaternion.identity);
+                        Instantiate(bulletPrefab, transform.position + new Vector3(0.5f, 0.5f, 0), Quaternion.identity);
+                        break;
+                    case 3:
+                        Instantiate(bulletPrefab, transform.position + new Vector3(-0.5f, 0.5f, 0), Quaternion.Euler(0, 0, 45));
+                        Instantiate(bulletPrefab, transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
+                        Instantiate(bulletPrefab, transform.position + new Vector3(0.5f, 0.5f, 0), Quaternion.Euler(0, 0, -45));
+                        break;
+                }
+            }
+        }
+
+        IEnumerator SpeedPowerDown()
+        {
+            yield return new WaitForSeconds(3f);
+            playerSpeed = 5f;
+            thrusterPrefab.SetActive(false);
+            gameManager.ManagePowerupText(0);
+            gameManager.PlaySound(2);
+        }
+
+        IEnumerator WeaponPowerDown()
+        {
+            yield return new WaitForSeconds(3f);
+            weaponType = 1;
+            gameManager.ManagePowerupText(0);
+            gameManager.PlaySound(2);
+        }
+
+        private void OnTriggerEnter2D(Collider2D whatDidIHit)
+        {
+            if (whatDidIHit.tag == "Powerup")
+            {
+                Destroy(whatDidIHit.gameObject);
+                int whichPowerup = Random.Range(1, 5);
+                gameManager.PlaySound(1);
+                switch (whichPowerup)
+                {
+                    case 1:
+                        //Picked up speed
+                        playerSpeed = 10f;
+                        StartCoroutine(SpeedPowerDown());
+                        thrusterPrefab.SetActive(true);
+                        gameManager.ManagePowerupText(1);
+                        break;
+                    case 2:
+                        weaponType = 2; //Picked up double weapon
+                        StartCoroutine(WeaponPowerDown());
+                        gameManager.ManagePowerupText(2);
+                        break;
+                    case 3:
+                        weaponType = 3; //Picked up triple weapon
+                        StartCoroutine(WeaponPowerDown());
+                        gameManager.ManagePowerupText(3);
+                        break;
+                    case 4:
+                        //Picked up shield
+                        //Do I already have a shield?
+                        //If yes: do nothing
+                        //If not: activate the shield's visibility
+                        gameManager.ManagePowerupText(4);
+                        break;
+                    case 5:
+                        //Picked up extra life
+                        if (lives < 3) {
+                            lives++;
+                            gameManager.ChangeLivesText(lives);
+                            gameManager.ManagePowerupText(5);
+                            break;
+                        }
+                        else if (lives == 3) {
+                            //do nothing
+                            gameManager.ManagePowerupText(0);
+                            break;
+                        }
+                }
+>>>>>>> Stashed changes
             }
         }
     }

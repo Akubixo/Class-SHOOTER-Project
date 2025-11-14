@@ -57,6 +57,55 @@ namespace AJM
 
         }
 
+<<<<<<< Updated upstream
+=======
+        public void ManagePowerupText(int powerupType)
+        {
+            switch (powerupType)
+            {
+                case 1:
+                    powerupText.text = "Speed!";
+                    break;
+                case 2:
+                    powerupText.text = "Double Weapon!";
+                    break;
+                case 3:
+                    powerupText.text = "Triple Weapon!";
+                    break;
+                case 4:
+                    powerupText.text = "Shield!";
+                    break;
+                case 5:
+                    powerupText.text = "Extra Life!";
+                    break;
+                default:
+                    powerupText.text = "No powerups yet!";
+                    break;
+            }
+        }
+
+        IEnumerator SpawnPowerup()
+        {
+            float spawnTime = Random.Range(3, 5);
+            yield return new WaitForSeconds(spawnTime);
+            CreatePowerup();
+            StartCoroutine(SpawnPowerup());
+        }
+
+        public void PlaySound(int whichSound)
+        {
+            switch (whichSound)
+            {
+                case 1:
+                    audioPlayer.GetComponent<AudioSource>().PlayOneShot(powerupSound);
+                    break;
+                case 2:
+                    audioPlayer.GetComponent<AudioSource>().PlayOneShot(powerdownSound);
+                    break;
+            }
+        }
+
+>>>>>>> Stashed changes
         public void AddScore(int earnedScore)
         {
             score = score + earnedScore;
