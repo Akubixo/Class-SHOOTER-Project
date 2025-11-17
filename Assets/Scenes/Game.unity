@@ -635,6 +635,8 @@ MonoBehaviour:
   gameOverText: {fileID: 874959720}
   restartText: {fileID: 534851394}
   powerupPrefab: {fileID: 6321338230102805099, guid: dcc636e94b52b1645be40aad7e1a44cc, type: 3}
+  coinPrefab: {fileID: 8547211087410605821, guid: b450d9f8b805f834391cb609be25dda6, type: 3}
+  heartPrefab: {fileID: 0}
   audioPlayer: {fileID: 2044285019}
   powerupSound: {fileID: 8300000, guid: c1024b39edcb4164aae9e6cb03e57818, type: 3}
   powerdownSound: {fileID: 8300000, guid: e68df662dbacca245a182cfe7d1a9d20, type: 3}

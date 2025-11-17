@@ -21,6 +21,7 @@ namespace AJM
         public GameObject restartText;
         public GameObject powerupPrefab;
         public GameObject coinPrefab;
+        public GameObject heartPrefab;
         public GameObject audioPlayer;
 
         public AudioClip powerupSound;
@@ -53,6 +54,7 @@ namespace AJM
             InvokeRepeating("CreateEnemyMichael", 2, 6);
             StartCoroutine(SpawnPowerup());
             StartCoroutine(SpawnCoin());
+            StartCoroutine(SpawnHeartPowerup());
             powerupText.text = "No powerups yet!";
         }
 
@@ -86,7 +88,12 @@ namespace AJM
 
         void CreateCoin()
         {
-            Instantiate(powerupPrefab, new Vector3(Random.Range(-horizontalScreenSize * 0.8f, horizontalScreenSize * 0.8f), Random.Range(-verticalScreenSize * 0.7f, verticalScreenSize * 0.1f), 0), Quaternion.identity);
+            Instantiate(coinPrefab, new Vector3(Random.Range(-horizontalScreenSize * 0.8f, horizontalScreenSize * 0.8f), Random.Range(-verticalScreenSize * 0.6f, verticalScreenSize * 0.1f), 0), Quaternion.identity);
+        }
+
+        void CreateHeartPowerup()
+        {
+            Instantiate(heartPrefab, new Vector3(Random.Range(-horizontalScreenSize * 0.8f, horizontalScreenSize * 0.8f), Random.Range(-verticalScreenSize * 0.6f, verticalScreenSize * 0.1f), 0), Quaternion.identity);
         }
 
         void CreateSky()
@@ -114,9 +121,6 @@ namespace AJM
                 case 4:
                     powerupText.text = "Shield!";
                     break;
-                case 5:
-                    powerupText.text = "Extra Life!";
-                    break;
                 default:
                     powerupText.text = "No powerups yet!";
                     break;
@@ -137,6 +141,14 @@ namespace AJM
             yield return new WaitForSeconds(spawnTime);
             CreateCoin();
             StartCoroutine(SpawnCoin());
+        }
+
+        IEnumerator SpawnHeartPowerup()
+        {
+            float spawnTime = Random.Range(3, 5);
+            yield return new WaitForSeconds(spawnTime);
+            CreateHeartPowerup();
+            StartCoroutine(SpawnHeartPowerup());
         }
 
         public void PlaySound(int whichSound)

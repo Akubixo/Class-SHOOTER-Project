@@ -141,20 +141,22 @@ namespace AJM
                         //If not: activate the shield's visibility
                         gameManager.ManagePowerupText(4);
                         break;
-                    case 5:
-                        //Picked up extra life
-                        if (lives < 3) {
-                            lives++;
-                            gameManager.ChangeLivesText(lives);
-                            gameManager.ManagePowerupText(5);
-                            break;
-                        }
-                        else if (lives == 3) {
-                            //do nothing
-                            gameManager.ManagePowerupText(0);
-                            break;
-                        }
-                        break;
+                }
+
+                if (whatDidIHit.tag == "Heart")
+                {
+                    Destroy(whatDidIHit.gameObject);
+                    if (lives < 3)
+                    {
+                        lives++;
+                        gameManager.ChangeLivesText(lives);
+                        gameManager.ManagePowerupText(5);
+                    }
+                    else if (lives == 3)
+                    {
+                        gameManager.AddScore(1);
+                        gameManager.ManagePowerupText(0);
+                    }
                 }
             }
         }

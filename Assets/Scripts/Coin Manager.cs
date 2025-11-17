@@ -17,8 +17,7 @@ namespace AJM
         {
             if (whatDidIHit.tag == "Player")
             {
-                Destroy(whatDidIHit.gameObject);
-                gameManager.AddScore(5);
+                gameManager.AddScore(1);
                 Destroy(this.gameObject);
             }
         }
