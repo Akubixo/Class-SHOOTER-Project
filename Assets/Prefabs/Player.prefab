@@ -108,7 +108,7 @@ MonoBehaviour:
   lives: 0
   bulletPrefab: {fileID: 1340122912930008073, guid: 94d8a52b072857f4b90331a741980b7e, type: 3}
   explosionPrefab: {fileID: 6946788087615096057, guid: 24f4ec3222412f645819829e8cd3a104, type: 3}
-  thrusterPrefab: {fileID: 0}
+  thrusterPrefab: {fileID: 6506643378319326637, guid: d49f2c69e9a1406489fbfde31371d436, type: 3}
   shieldPrefab: {fileID: 3191613488673667241, guid: 9d2e16054e5e8c746ab410e0c7a985e2, type: 3}
 --- !u!50 &1020342694248985534
 Rigidbody2D:
