@@ -83,7 +83,7 @@ namespace AJM
 
         void CreatePowerup()
         {
-            Instantiate(powerupPrefab, new Vector3(Random.Range(-horizontalScreenSize * 0.8f, horizontalScreenSize * 0.8f), Random.Range(-verticalScreenSize * 0.7f, verticalScreenSize * 0.1f), 0), Quaternion.identity);
+            Instantiate(powerupPrefab, new Vector3(Random.Range(-horizontalScreenSize * 0.8f, horizontalScreenSize * 0.8f), Random.Range(-verticalScreenSize * 0.5f, verticalScreenSize * 0.1f), 0), Quaternion.identity);
         }
 
         void CreateCoin()
@@ -129,7 +129,7 @@ namespace AJM
 
         IEnumerator SpawnPowerup()
         {
-            float spawnTime = Random.Range(3, 5);
+            float spawnTime = Random.Range(6, 8);
             yield return new WaitForSeconds(spawnTime);
             CreatePowerup();
             StartCoroutine(SpawnPowerup());
@@ -145,7 +145,7 @@ namespace AJM
 
         IEnumerator SpawnHeartPowerup()
         {
-            float spawnTime = Random.Range(3, 5);
+            float spawnTime = Random.Range(20, 30);
             yield return new WaitForSeconds(spawnTime);
             CreateHeartPowerup();
             StartCoroutine(SpawnHeartPowerup());
